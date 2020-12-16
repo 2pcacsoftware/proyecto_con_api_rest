@@ -1,0 +1,142 @@
+[
+    {
+        "idStory": 1,
+        "idUser": 14,
+        "user": "Goku",
+        "imageUser": "img/profile-pics/goku.jpg",
+        "story": [
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/7.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/1.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/1.jpg"
+            }
+        ]
+    },
+    {
+        "idStory": 2,
+        "idUser": 13,
+        "user": "Gohan",
+        "imageUser": "img/profile-pics/gohan.jpg",
+        "story": [
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/6.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/3.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/2.jpg"
+            }
+        ]
+    },
+    {
+        "idStory": 3,
+        "idUser": 15,
+        "user": "Goten",
+        "imageUser": "img/profile-pics/goten.png",
+        "story": [
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/5.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/2.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/3.jpg"
+            }
+        ]
+    },
+    {
+        "idStory": 4,
+        "idUser": 30,
+        "user": "Trunks",
+        "imageUser": "img/profile-pics/trunks.jpg",
+        "story": [
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/4.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/2.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/4.jpg"
+            }
+        ]
+    },
+    {
+        "idStory": 5,
+        "idUser": 10,
+        "user": "Dende",
+        "imageUser": "img/profile-pics/dende.jpg",
+        "story": [
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/3.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/3.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/5.jpg"
+            }
+        ]
+    },
+    {
+        "idStory": 6,
+        "idUser": 12,
+        "user": "Freezer",
+        "imageUser": "img/profile-pics/freezer.jpg",
+        "story": [
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/2.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/5.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/6.jpg"
+            }
+        ]
+    },
+    {
+        "idStory": 7,
+        "idUser": 11,
+        "user": "Dodoria",
+        "imageUser": "img/profile-pics/dodoria.jpg",
+        "story": [
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/1.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/6.jpg"
+            },
+            {
+                "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.",
+                "image": "img/stories/7.jpg"
+            }
+        ]
+    }
+]

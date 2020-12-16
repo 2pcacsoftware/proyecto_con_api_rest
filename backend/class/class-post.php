@@ -50,6 +50,24 @@ class Post{
         echo json_encode($resultPost);
     }
 
+    public function savePost(){
+        $contentFilePosts = file_get_contents('../data/posts.json');
+        $posts =json_decode($contentFilePosts, true);
+        $posts[]= array(
+            "idPost" => $this->idPost,
+            "idUser" => $this->idUser,
+            "contentPost" => $this->contentPost,
+            "image" => $this->image,
+            "amountLikes" => $this->amountLikes
+            );
+        // atentos a los permisos en linux y en mac por que puede dar fallo de escritura
+        $file = fopen('../data/posts.json','w') or ("Error al abrir fichero de salida");
+        fwrite($file,json_encode($posts,JSON_UNESCAPED_UNICODE));
+        fclose ($file);
+
+        echo '{"codigoResultado":1,"mensaje":"Post guardado con exito"}';
+    }
+
 
     /**
      * Get the value of idPost

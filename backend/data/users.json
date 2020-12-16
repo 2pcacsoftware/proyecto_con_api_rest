@@ -1,31 +1,18 @@
 [
     {
-        "IdUser": 1,
+        "idUser": 1,
         "name": "Patricio",
         "email": "patricio@gmail.com",
         "password": "asd.456",
         "image": "img/profile-pics/patricio.jpg",
         "follow": [
-            1,
             2,
             3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
-            15,
-            16
+            4
         ]
     },
     {
-        "IdUser": 2,
+        "idUser": 2,
         "name": "Vegeta",
         "email": "vegeta@gmail.com",
         "password": "bcdcb29ed2aab16d48c11485264df665e906bdd9",
@@ -50,7 +37,7 @@
         ]
     },
     {
-        "IdUser": 3,
+        "idUser": 3,
         "name": "16",
         "email": "16@gmail.com",
         "password": "asd.456",
@@ -75,7 +62,7 @@
         ]
     },
     {
-        "IdUser": 4,
+        "idUser": 4,
         "name": "18",
         "email": "18@gmail.com",
         "password": "asd.456",
@@ -100,7 +87,7 @@
         ]
     },
     {
-        "IdUser": 5,
+        "idUser": 5,
         "name": "19",
         "email": "19@gmail.com",
         "password": "asd.456",
@@ -125,7 +112,7 @@
         ]
     },
     {
-        "IdUser": 6,
+        "idUser": 6,
         "name": "Baby",
         "email": "baby@gmail.com",
         "password": "asd.456",
@@ -150,7 +137,7 @@
         ]
     },
     {
-        "IdUser": 7,
+        "idUser": 7,
         "name": "Bulma",
         "email": "bulma@gmail.com",
         "password": "asd.456",
@@ -175,7 +162,7 @@
         ]
     },
     {
-        "IdUser": 8,
+        "idUser": 8,
         "name": "Cell",
         "email": "cell@gmail.com",
         "password": "asd.456",
@@ -200,7 +187,7 @@
         ]
     },
     {
-        "IdUser": 9,
+        "idUser": 9,
         "name": "Chaozu",
         "email": "chaozu@gmail.com",
         "password": "asd.456",
@@ -225,7 +212,7 @@
         ]
     },
     {
-        "IdUser": 10,
+        "idUser": 10,
         "name": "Dende",
         "email": "dende@gmail.com",
         "password": "asd.456",
@@ -250,7 +237,7 @@
         ]
     },
     {
-        "IdUser": 11,
+        "idUser": 11,
         "name": "Dodoria",
         "email": "dodoria@gmail.com",
         "password": "asd.456",
@@ -275,7 +262,7 @@
         ]
     },
     {
-        "IdUser": 12,
+        "idUser": 12,
         "name": "Freezer",
         "email": "freezer@gmail.com",
         "password": "asd.456",
@@ -300,7 +287,7 @@
         ]
     },
     {
-        "IdUser": 13,
+        "idUser": 13,
         "name": "Gohan",
         "email": "gohan@gmail.com",
         "password": "asd.456",
@@ -325,7 +312,7 @@
         ]
     },
     {
-        "IdUser": 14,
+        "idUser": 14,
         "name": "Goku",
         "email": "goku@gmail.com",
         "password": "asd.456",
@@ -350,7 +337,7 @@
         ]
     },
     {
-        "IdUser": 15,
+        "idUser": 15,
         "name": "Goten",
         "email": "goten@gmail.com",
         "password": "asd.456",
@@ -375,7 +362,7 @@
         ]
     },
     {
-        "IdUser": 16,
+        "idUser": 16,
         "name": "Kami",
         "email": "kami@gmail.com",
         "password": "asd.456",
@@ -400,7 +387,7 @@
         ]
     },
     {
-        "IdUser": 17,
+        "idUser": 17,
         "name": "Kibito",
         "email": "kibito@gmail.com",
         "password": "asd.456",
@@ -425,7 +412,7 @@
         ]
     },
     {
-        "IdUser": 18,
+        "idUser": 18,
         "name": "Krilin",
         "email": "krilin@gmail.com",
         "password": "asd.456",
@@ -450,7 +437,7 @@
         ]
     },
     {
-        "IdUser": 19,
+        "idUser": 19,
         "name": "Majinboo",
         "email": "majinboo@gmail.com",
         "password": "asd.456",
@@ -475,7 +462,7 @@
         ]
     },
     {
-        "IdUser": 20,
+        "idUser": 20,
         "name": "MrSatan",
         "email": "mr_satan@gmail.com",
         "password": "asd.456",
@@ -500,7 +487,7 @@
         ]
     },
     {
-        "IdUser": 21,
+        "idUser": 21,
         "name": "Nappa",
         "email": "nappa@gmail.com",
         "password": "asd.456",
@@ -525,7 +512,7 @@
         ]
     },
     {
-        "IdUser": 22,
+        "idUser": 22,
         "name": "Oolong",
         "email": "oolong@gmail.com",
         "password": "asd.456",
@@ -550,7 +537,7 @@
         ]
     },
     {
-        "IdUser": 23,
+        "idUser": 23,
         "name": "Pan",
         "email": "pan@gmail.com",
         "password": "asd.456",
@@ -575,7 +562,7 @@
         ]
     },
     {
-        "IdUser": 24,
+        "idUser": 24,
         "name": "Shenlong",
         "email": "shenlong@gmail.com",
         "password": "asd.456",
@@ -600,7 +587,7 @@
         ]
     },
     {
-        "IdUser": 25,
+        "idUser": 25,
         "name": "Picoro",
         "email": "picoro@gmail.com",
         "password": "asd.456",

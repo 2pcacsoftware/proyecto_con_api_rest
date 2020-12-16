@@ -1,0 +1,44 @@
+[
+    {
+        "idComment": 1,
+        "idPost": 1,
+        "user": "Goku",
+        "comment": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto."
+    },
+    {
+        "idComment": 2,
+        "idPost": 1,
+        "user": "Vegeta",
+        "comment": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto."
+    },
+    {
+        "idComment": 3,
+        "idPost": 2,
+        "user": "Videl",
+        "comment": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto."
+    },
+    {
+        "idComment": 4,
+        "idPost": 2,
+        "user": "Trunks",
+        "comment": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto."
+    },
+    {
+        "idComment": 5,
+        "idPost": 3,
+        "user": "Patricio",
+        "comment": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto."
+    },
+    {
+        "idComment": 6,
+        "idPost": 3,
+        "user": "Goten",
+        "comment": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto."
+    },
+    {
+        "idComment": 7,
+        "idPost": 2,
+        "user": "Gohan",
+        "comment": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto."
+    }
+]

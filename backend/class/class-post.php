@@ -37,10 +37,17 @@ class Post{
         for ($i=0; $i < sizeof($posts) ; $i++) { 
             if (in_array ($posts[$i]["idUser"], $user["follow"])){
                 $posts[$i]["comments"] = array();
+                //comments
                 for ($j=0;$j<sizeof($comment);$j++){
                     if ($posts[$i]["idPost"]==$comment[$j]['idPost']){
                         $posts[$i]["comments"][]=$comment[$j];
-
+                    }
+                }
+                // name e image
+                for ($j=0;$j<sizeof($users);$j++){
+                    if ($posts[$i]["idUser"]==$users[$j]['idUser']){
+                        $posts[$i]["name"]=$users[$j]['name'];
+                        $posts[$i]["imageAccount"]=$users[$j]['image'];
                     }
                 }
                 $resultPost[]=$posts[$i];

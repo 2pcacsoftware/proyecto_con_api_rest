@@ -32,8 +32,8 @@ function mostrarPosts(value) {
             `<div class="col-lg-12">
                 <div class="card mb-4 shadow-sm">
                 <div class="card-header">
-                    <img class="img-fluid img-thumbnail rounded-circle" src="#">    
-                    <span>Nombre Pendiente</span>
+                    <img class="img-fluid img-thumbnail rounded-circle" src="${post.imageAccount}">    
+                    <span>${post.name}</span>
                 </div>
                 <div class="card-body px-0 py-0">
                     <div class="image-post" style="background-image: url(${post.image});">
@@ -41,7 +41,7 @@ function mostrarPosts(value) {
                     </div>
                     <div class="px-3 py-3 post">
                     <span class="pointer" onclick="like(1);"><i class="far fa-heart"></i></span>&nbsp;3 Likes<br>
-                    <span class="post-user">pendiente</span>
+                    <span class="post-user">${post.name}</span>
                     <span class="post-content">${post.contentPost}</span>
                     <hr>
                     <b>Comments</b><br>

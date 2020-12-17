@@ -24,6 +24,7 @@ function mostrarPosts(value) {
         method: 'get',
         responseType: 'json'
     }).then (res=>{
+        document.getElementById('posts').innerHTML= '';
         for (let i = 0; i < res.data.length; i++) {
             
             const post = res.data[i];

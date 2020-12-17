@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Instagram</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/custom.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/all.css">
+</head>
+<body>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <img src="img/Logo.png" class="img-fluid my-0 mr-md-auto ">
+    <!--Aqui deben estar tooodos los usuarios-->
+    <select id="users-actual" class="form-control" style="width: 200px;">
+    </select>
+    &nbsp;
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#nuovo-post">
+        Nuovo post
+    </button>
+    
+  </div>
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+          <div class="row" id="posts">
+
+            <!--Post1-->
+            <div class="col-lg-12">
+              <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <img class="img-fluid img-thumbnail rounded-circle" src="img/profile-pics/patricio.jpg">    
+                    <span>Patricio</span>
+                </div>
+                <div class="card-body px-0 py-0">
+                  <div class="image-post" style="background-image: url(img/posts/1.jpg);">
+
+                  </div>
+                  <div class="px-3 py-3 post">
+                    <span class="pointer" onclick="like(1);"><i class="far fa-heart"></i></span>&nbsp;3 Likes<br>
+                    <span class="post-user">Patricio</span>
+                    <span class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa distinctio libero perspiciatis a fugit iusto, beatae ab voluptates quaerat voluptatem magni dolor expedita ipsa eius unde. Earum reprehenderit ab doloremque.</span>
+                    <hr>
+                    <b>Comments</b><br>
+                    <div>
+                      <span class="post-user">Goku</span>
+                      <span class="post-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.</span>
+                    </div>
+                    <div>
+                      <span class="post-user">Bulma</span>
+                      <span class="post-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, iusto.</span>
+                    </div>
+                    <hr>
+                    <div class="px-0">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Comment" id="comentario-post-1">
+                        <div class="input-group-append">
+                            <button type="button" onclick="comentar(1);" class="btn btn-outline-danger"><i class="far fa-paper-plane"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!--Fin div posts-->
+      </div>
+      <div class="col-lg-4">
+        <div class="row">
+            <!--Historias-->
+            <div class="col-lg-12">
+              <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                  Stories
+                </div>
+                
+                <!--Item1-->
+                <div class="px-1 py-2 story-card pointer" onclick="verHistoria(1,1);">
+                    <div class="fl">
+                      <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="img/profile-pics/goku.jpg">
+                    </div>  
+                    <div class="py-1 px-1 fl">
+                      <small><b>Goku(2)</b></small><br>
+                      <small>12/12/2012</small>
+                    </div>
+                </div>
+
+                <!--Item2-->
+                <div class="px-1 py-2 story-card pointer" onclick="verHistoria(1,2);">
+                    <div class="fl">
+                      <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="img/profile-pics/vegeta.jpg">
+                    </div>  
+                    <div class="py-1 px-1 fl">
+                      <small><b>Vegeta(3)</b></small><br>
+                      <small>12/12/2012</small>
+                    </div>
+                </div>
+
+                <!--Item3-->
+                <div class="px-1 py-2 story-card pointer" onclick="verHistoria(1,3);">
+                    <div class="fl">
+                      <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="img/profile-pics/dende.jpg">
+                    </div>  
+                    <div class="py-1 px-1 fl">
+                      <small><b>Dende(1)</b></small><br>
+                      <small>12/12/2012</small>
+                    </div>
+                </div>
+
+              </div>
+            </div><!--Fin Historias-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div class="row">
+        <div class="col-12 col-md">
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script src="js/controller.js"></script>
+</body>
+</html>

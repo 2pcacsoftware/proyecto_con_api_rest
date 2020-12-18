@@ -16,8 +16,12 @@ class Comment {
     public function saveComment(){
         $contentFileComment = file_get_contents('../data/comment.json');
         $comment =json_decode($contentFileComment, true);
+        // ultimo comment
+        $max = sizeof($comment)-1;
+        $lastComment = $comment[$max]['idComment']+1;
+        //save
         $comment[]= array(
-            "idComment" => $this->idComment,
+            "idComment" => $lastComment,
             "idPost" => $this->idPost,
             "user" => $this->user,
             "comment" => $this->comment

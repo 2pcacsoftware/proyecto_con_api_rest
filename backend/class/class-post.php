@@ -60,8 +60,12 @@ class Post{
     public function savePost(){
         $contentFilePosts = file_get_contents('../data/posts.json');
         $posts =json_decode($contentFilePosts, true);
+        // ultimo comment
+        $max = sizeof($posts)-1;
+        $lastPost = $posts[$max]['idPost']+1;
+        //save
         $posts[]= array(
-            "idPost" => $this->idPost,
+            "idPost" => $lastPost,
             "idUser" => $this->idUser,
             "contentPost" => $this->contentPost,
             "image" => $this->image,

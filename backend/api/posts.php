@@ -1,14 +1,21 @@
 <?php
 header ("Content-Type: application/json");
 include_once ("../class/class-post.php");
-$_POST = json_decode(file_get_contents('php://input'),true);
+//$_POST = json_decode(file_get_contents('php://input'),true);
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'POST': //GUARDAR
+        $target_dir = "../img/posts/";
+        $nameFile = time() ;
+        $target_file = $target_dir . $nameFile . basename($_FILES["image"]["name"]);
+        $target_file = str_replace(" ","",$target_file);
+        $target_file = str_replace("_","",$target_file);
+        $target_file = str_replace("-","",$target_file);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file) ;
         $post= new  Post (
             $_POST['idPost'],
             $_POST['idUser'],
             $_POST['contentPost'],
-            $_POST['image'],
+            substr($target_file, 3),
             $_POST['amountLikes)']
         );
         $post->savePost();

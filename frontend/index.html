@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <img src="img/Logo.png" class="img-fluid my-0 mr-md-auto ">
     <!--Aqui deben estar tooodos los usuarios-->
-    <select id="users-actual" class="form-control" style="width: 200px;" onchange="mostrarPosts(this.value)">
+    <select id="users-actual" class="form-control" style="width: 200px;" onchange="showPosts(this.value)">
     </select>
     &nbsp;
     <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#nuovo-post">
@@ -82,6 +82,30 @@
         </div>
       </div>
     </div>
+
+<!--Ventana modal para un nuevo post-->
+<div class="modal fade" id="nuovo-post" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">    
+        <textarea class="form-control" id="content-post" placeholder="Scrivere qui"></textarea>
+        <input type="file" class="form-control-file" id="image_file_post">
+        <!--<input id="url-imagen" type="text" class="form-control" placeholder="Url-image"> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancellare</button>
+        <button type="button" class="btn btn-danger" onclick="setNewPost()">Pubblicare</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
       <div class="row">

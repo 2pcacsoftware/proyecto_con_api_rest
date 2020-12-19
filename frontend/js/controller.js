@@ -1,3 +1,5 @@
+const route="http://localhost/fashionsolution/backend/";
+
 function setComment(idPost) {
     console.log(`Comentar el post ${idPost} con el comentario ${document.getElementById('comment-post-' + idPost).value}`);
     let selectUser = document.getElementById('users-actual');
@@ -25,6 +27,24 @@ function setComment(idPost) {
     });
 }
 
+function setNewPost() {
+    const valuePost = document.getElementById('content-post').value;
+    const valueFile = document.getElementById('image_file_post');
+    const selectUser = document.getElementById('users-actual');
+    const userActual = selectUser.options[selectUser.selectedIndex].text;   
+    let formData = new FormData();
+    formData.append("idPost", "");
+    formData.append("idUser", userActual);
+    formData.append("contentPost", valuePost); 
+    formData.append("amountLikes", "");
+    // HTML file input user's choice...
+    formData.append("image", valueFile.files[0]);
+    console.log(Array.from(formData));
+    let request = new XMLHttpRequest();
+    request.open("POST", "../backend/api/posts.php");
+    request.send(formData);
+}
+
 function getUsers() {
     axios({
         url: '../backend/api/users.php',
@@ -43,7 +63,7 @@ function getUsers() {
 }
 getUsers();
 
-function mostrarPosts(value) {
+function showPosts(value) {
 
 
     axios({
@@ -70,11 +90,11 @@ function mostrarPosts(value) {
                 `<div class="col-lg-12">
                 <div class="card mb-4 shadow-sm">
                 <div class="card-header">
-                    <img class="img-fluid img-thumbnail rounded-circle" src="${post.imageAccount}">    
+                    <img class="img-fluid img-thumbnail rounded-circle" src="${route+post.imageAccount}">    
                     <span>${post.name}</span>
                 </div>
                 <div class="card-body px-0 py-0">
-                    <div class="image-post" style="background-image: url(${post.image});">
+                    <div class="image-post" style="background-image: url(${route+post.image});">
 
                     </div>
                     <div class="px-3 py-3 post">

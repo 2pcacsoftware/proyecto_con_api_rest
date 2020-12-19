@@ -7,9 +7,9 @@ class User {
     private $image;
     private $follow;
 
-    public function __construct($IdUser,$name,$email,$password,$image,$follow)
+    public function __construct($idUser,$name,$email,$password,$image,$follow)
     {
-        $this->IdUser=$IdUser;
+        $this->idUser=$idUser;
         $this->name=$name;
         $this->email=$email;
         $this->password=$password;
@@ -23,6 +23,18 @@ class User {
     }
     public static function getUser($id){
 
+    }
+    public static function startSession($email,$password){
+        $contentFile=file_get_contents('../data/users.json');
+        $start= json_decode($contentFile,true);
+        $value= array ('startSession'=> 'false', 'idUser'=>'');
+        for ($i=0; $i <sizeof($start) ; $i++) { 
+            if (($start[$i]['email']==$email) && ($start[$i]['password']==$password)){
+                $value['startSession']=true;
+                $value['idUser']=$start[$i]['idUser'];
+            }
+        }
+        echo json_encode($value);
     }
 
     /**
@@ -38,9 +50,9 @@ class User {
      *
      * @return  self
      */ 
-    public function setIdUser($IdUser)
+    public function setIdUser($idUser)
     {
-        $this->IdUser = $IdUser;
+        $this->idUser = $idUser;
 
         return $this;
     }

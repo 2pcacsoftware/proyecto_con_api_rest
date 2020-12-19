@@ -6,10 +6,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
         # code...
         break;
     case 'GET': //CONSULTAR
-        if(isset($_GET['id'])){
-            User::getUser($_GET['id']);
+        if (isset($_GET['email'] )&& isset($_GET['password'])){
+            $result= User::startSession($_GET['email'],$_GET['password']);
         }else{
-            User::getUsers();
+            if(isset($_GET['id'])){
+                User::getUser($_GET['id']);
+            }else{
+                User::getUsers();
+            }
         }
         break;
     case 'PUT': //ACTUALIZAR

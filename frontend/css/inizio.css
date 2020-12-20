@@ -64,3 +64,6 @@ max-width: 700px;
   .pointer{
     cursor:pointer;
   }
+#exit{
+  margin-left: 10px;
+}

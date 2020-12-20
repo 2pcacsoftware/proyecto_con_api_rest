@@ -6,7 +6,11 @@ function securityPage(){
     }
     getUser(sessionStorage.getItem('idUser'));
 }
+function exitSession() {
+    sessionStorage.clear();
 
+    window.location.href = "index.html";
+}
 function setComment(idPost) {
     console.log(`Comentar el post ${idPost} con el comentario ${document.getElementById('comment-post-' + idPost).value}`);
     axios({

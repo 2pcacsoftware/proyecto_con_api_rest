@@ -1,23 +1,28 @@
 const route="http://localhost/fashionsolution/backend/";
 
+function securityPage(){
+    if ((sessionStorage.getItem('startSession')!='true')||(sessionStorage.getItem('idUser')=='')){
+        window.location.href = "index.html";
+    }
+    getUser(sessionStorage.getItem('idUser'));
+}
+
 function setComment(idPost) {
     console.log(`Comentar el post ${idPost} con el comentario ${document.getElementById('comment-post-' + idPost).value}`);
-    let selectUser = document.getElementById('users-actual');
-    let userActual = selectUser.options[selectUser.selectedIndex].text;
     axios({
         url: '../backend/api/comments.php',
         method: 'post',
         responseType: 'json',
         data: {
             idPost: idPost,
-            user: userActual,
+            user: sessionStorage.getItem('name'),
             comment: document.getElementById('comment-post-' + idPost).value
         }
     }).then(res => {
         console.log(res);
         document.getElementById('comment-' + idPost).innerHTML +=
             `<div>       
-                <span class="post-user">${userActual}</span>
+                <span class="post-user">${sessionStorage.getItem('name')}</span>
                 <span class="post-content">${document.getElementById('comment-post-' + idPost).value}</span>
             </div>
             `;
@@ -30,11 +35,9 @@ function setComment(idPost) {
 function setNewPost() {
     const valuePost = document.getElementById('content-post').value;
     const valueFile = document.getElementById('image_file_post');
-    const selectUser = document.getElementById('users-actual');
-    const userActual = selectUser.options[selectUser.selectedIndex].text;   
     let formData = new FormData();
     formData.append("idPost", "");
-    formData.append("idUser", userActual);
+    formData.append("idUser", sessionStorage.getItem('idUser'));
     formData.append("contentPost", valuePost); 
     formData.append("amountLikes", "");
     // HTML file input user's choice...
@@ -43,6 +46,30 @@ function setNewPost() {
     let request = new XMLHttpRequest();
     request.open("POST", "../backend/api/posts.php");
     request.send(formData);
+    $('#nuovo-post').modal('hide');
+}
+
+function getUser(idUser) {
+    axios({
+        url: '../backend/api/users.php?idUser='+idUser,
+        method: 'get',
+        responseType: 'json'
+    }).then(res => {
+
+        sessionStorage.setItem('name', res.data.name);
+        sessionStorage.setItem('email', res.data.email);
+        sessionStorage.setItem('image', res.data.image);
+        sessionStorage.setItem('follow', res.data.follow);
+
+        document.getElementById('user').innerHTML += `
+                <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="${route+res.data.image}">
+                <span >${res.data.name}</span>`
+
+        showPosts(idUser); 
+        //console.log(res);
+    }).catch(error => {
+        console.error(error);
+    });
 }
 
 function getUsers() {
@@ -61,7 +88,6 @@ function getUsers() {
         console.error(error);
     });
 }
-getUsers();
 
 function showPosts(value) {
 

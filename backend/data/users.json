@@ -6,6 +6,7 @@
         "password": "asd.456",
         "image": "img/profile-pics/patricio.jpg",
         "follow": [
+            1,
             13,
             14,
             15

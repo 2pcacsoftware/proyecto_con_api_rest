@@ -21,8 +21,15 @@ class User {
         $contentFile=file_get_contents('../data/users.json');
         echo $contentFile;
     }
-    public static function getUser($id){
-
+    public static function getUser($idUser){
+        $contentFile=file_get_contents('../data/users.json');
+        $users= json_decode($contentFile,true);
+        for ($i=0; $i < sizeof($users); $i++) { 
+            if ($idUser==$users[$i][idUser]){
+                $result= $users[$i];
+            }
+        }
+        echo json_encode($result);
     }
     public static function startSession($email,$password){
         $contentFile=file_get_contents('../data/users.json');

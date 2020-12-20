@@ -9,12 +9,16 @@
   <link rel="stylesheet" type="text/css" media="screen" href="css/inizio.css">
   <link rel="stylesheet" type="text/css" media="screen" href="css/all.css">
 </head>
-<body>
+<body onload="securityPage()">
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <img src="img/Logo.png" class="img-fluid my-0 mr-md-auto ">
     <!--Aqui deben estar tooodos los usuarios-->
-    <select id="users-actual" class="form-control" style="width: 200px;" onchange="showPosts(this.value)">
-    </select>
+    <!--<select id="users-actual" class="form-control" style="width: 200px;" onchange="showPosts(this.value)">
+    </select>-->
+    <div id="user">
+
+    </div>
+    
     &nbsp;
     <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#nuovo-post">
         Nuovo post

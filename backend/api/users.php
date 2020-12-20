@@ -9,8 +9,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
         if (isset($_GET['email'] )&& isset($_GET['password'])){
             $result= User::startSession($_GET['email'],$_GET['password']);
         }else{
-            if(isset($_GET['id'])){
-                User::getUser($_GET['id']);
+            if(isset($_GET['idUser'])){
+                User::getUser($_GET['idUser']);
             }else{
                 User::getUsers();
             }

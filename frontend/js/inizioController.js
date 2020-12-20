@@ -70,6 +70,7 @@ function getUser(idUser) {
                 <span >${res.data.name}</span>`
 
         showPosts(idUser); 
+        showUserStories(idUser);
         //console.log(res);
     }).catch(error => {
         console.error(error);
@@ -92,6 +93,34 @@ function getUsers() {
         console.error(error);
     });
 }
+
+function showUserStories(idUser) {
+                
+    axios({
+        url: '../backend/api/stories.php?idUser='+idUser,
+        method: 'get',
+        responseType: 'json'
+    }).then(res => {
+        for (let i = 0; i < res.data.length; i++) {
+            document.getElementById('showUserStories').innerHTML += `
+                <div class="px-1 py-2 story-card pointer" onclick="showStories(1,1);">
+                    <div class="fl">
+                      <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="${route+res.data[i].imageUser}">
+                    </div>  
+                    <div class="py-1 px-1 fl">
+                      <small><b>${res.data[i].user}(${res.data[i].story.length})</b></small><br>
+                    </div>
+                </div>
+            `
+
+        }
+        document.getElementById('users-actual').value = null;
+        //console.log(res);
+    }).catch(error => {
+        console.error(error);
+    });
+}
+
 
 function showPosts(value) {
 

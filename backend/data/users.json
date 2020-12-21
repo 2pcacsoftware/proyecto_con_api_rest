@@ -3,7 +3,7 @@
         "idUser": 1,
         "name": "Patricio",
         "email": "patricio@gmail.com",
-        "password": "asd.456",
+        "password": "asd",
         "image": "img/profile-pics/patricio.jpg",
         "follow": [
             1,

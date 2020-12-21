@@ -69,7 +69,7 @@ class Post{
             "idUser" => $this->idUser,
             "contentPost" => $this->contentPost,
             "image" => $this->image,
-            "amountLikes" => $this->amountLikes
+            "amountLikes" => []
             );
         // atentos a los permisos en linux y en mac por que puede dar fallo de escritura
         $file = fopen('../data/posts.json','w') or ("Error al abrir fichero de salida");
@@ -79,6 +79,37 @@ class Post{
         echo '{"codigoResultado":1,"mensaje":"Post guardado con exito"}';
     }
 
+    public function updatePost($idPost){
+        $contentFilePosts = file_get_contents('../data/posts.json');
+        $posts =json_decode($contentFilePosts, true);
+        $position=-1;
+        for ($i=0; $i <sizeof($posts) ; $i++) { 
+            if ($posts[$i]['idPost']==$idPost){
+                $position=$i;
+            }
+        }
+        //save
+        $post= array(
+            "idPost" => $this->idPost,
+            "idUser" => $this->idUser,
+            "contentPost" => $this->contentPost,
+            "image" => $this->image,
+            "amountLikes" => $this->amountLikes
+            );
+        if ($position!=-1){
+            $posts[$position]=$post;
+            $file = fopen('../data/posts.json','w') or ("Error al abrir fichero de salida");
+            fwrite($file,json_encode($posts,JSON_UNESCAPED_UNICODE));
+            fclose ($file);
+
+            echo '{"codigoResultado":1,"mensaje":"Post actualizado con exito"}';
+        }else{
+            echo '{"codigoResultado":0,"mensaje":"No hubo cambios"}';
+
+        }
+        
+ 
+    }
 
     /**
      * Get the value of idPost

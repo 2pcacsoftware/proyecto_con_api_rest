@@ -1,4 +1,4 @@
-const route="http://localhost/fashionsolution/backend/";
+const route="../backend/";
 
 function securityPage(){
     if ((sessionStorage.getItem('startSession')!='true')||(sessionStorage.getItem('idUser')=='')){
@@ -23,7 +23,7 @@ function setComment(idPost) {
             comment: document.getElementById('comment-post-' + idPost).value
         }
     }).then(res => {
-        console.log(res);
+        //console.log(res);
         document.getElementById('comment-' + idPost).innerHTML +=
             `<div>       
                 <span class="post-user">${sessionStorage.getItem('name')}</span>
@@ -103,7 +103,7 @@ function showUserStories(idUser) {
     }).then(res => {
         for (let i = 0; i < res.data.length; i++) {
             document.getElementById('showUserStories').innerHTML += `
-                <div class="px-1 py-2 story-card pointer" onclick="showStories(1,1);">
+                <div class="px-1 py-2 story-card pointer" onclick="showStories(${idUser},${res.data[i].idStory});">
                     <div class="fl">
                       <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="${route+res.data[i].imageUser}">
                     </div>  
@@ -111,12 +111,12 @@ function showUserStories(idUser) {
                       <small><b>${res.data[i].user}(${res.data[i].story.length})</b></small><br>
                     </div>
                 </div>
-            `
+            `;
 
         }
-        document.getElementById('users-actual').value = null;
         //console.log(res);
-    }).catch(error => {
+    })
+    .catch(error => {
         console.error(error);
     });
 }
@@ -179,8 +179,41 @@ function showPosts(value) {
                 </div>
             </div>`;
         }
-        console.log(res);
+        //console.log(res);
     }).catch(error => {
         console.error(error);
     });
 }
+
+function showStories(idUser, idStory){
+    axios({
+        url: '../backend/api/stories.php?idUser='+idUser,
+        method: 'get',
+        responseType: 'json'
+    }).then(res => {
+        document.getElementById('bodyStory').innerHTML=''
+        for (let i = 0; i < res.data.length; i++) {
+            if (idStory== res.data[i].idStory){
+                for (let x = 0; x < res.data[i].story.length; x++) {
+                    document.getElementById('bodyStory').innerHTML += `
+                        <div class="story">
+                            <div class="story-image-post" style="background-image: url(${route+res.data[i].story[x].image})">
+                                <div class="story-title">${res.data[i].story[x].title}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+                document.getElementById('titleNameUserStory').innerHTML= 'Viendo Historias de '+res.data[i].user;
+            }
+        }
+        $('#show-story').modal('show');
+        //console.log(res);
+    }).catch(error => {
+        console.error(error);
+    });
+}
+
+
+
+
+   

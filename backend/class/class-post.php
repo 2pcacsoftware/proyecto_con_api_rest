@@ -71,7 +71,7 @@ class Post{
             "image" => $this->image,
             "amountLikes" => []
             );
-        // atentos a los permisos en linux y en mac por que puede dar fallo de escritura
+        // prestare attenzione ai permessi in linux e mac perché può dare errori di scrittura
         $file = fopen('../data/posts.json','w') or ("Error al abrir fichero de salida");
         fwrite($file,json_encode($posts,JSON_UNESCAPED_UNICODE));
         fclose ($file);

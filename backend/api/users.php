@@ -22,6 +22,5 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case 'DELETE': //ELIMINAR
         # code...
         break;
-    }
-
+}
 ?>

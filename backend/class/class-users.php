@@ -16,7 +16,7 @@ class User {
         $this->image=$image;
         $this->follow=$follow;
     }
-    //metodo para obtener usuario
+    //metodo per ottenere user
     public static function getUsers(){
         $contentFile=file_get_contents('../data/users.json');
         echo $contentFile;

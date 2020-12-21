@@ -1,7 +1,7 @@
-const route="../backend/";
+const route = "../backend/";
 
-function securityPage(){
-    if ((sessionStorage.getItem('startSession')!='true')||(sessionStorage.getItem('idUser')=='')){
+function securityPage() {
+    if ((sessionStorage.getItem('startSession') != 'true') || (sessionStorage.getItem('idUser') == '')) {
         window.location.href = "index.html";
     }
     getUser(sessionStorage.getItem('idUser'));
@@ -12,7 +12,6 @@ function exitSession() {
     window.location.href = "index.html";
 }
 function setComment(idPost) {
-    console.log(`Comentar el post ${idPost} con el comentario ${document.getElementById('comment-post-' + idPost).value}`);
     axios({
         url: '../backend/api/comments.php',
         method: 'post',
@@ -23,7 +22,6 @@ function setComment(idPost) {
             comment: document.getElementById('comment-post-' + idPost).value
         }
     }).then(res => {
-        //console.log(res);
         document.getElementById('comment-' + idPost).innerHTML +=
             `<div>       
                 <span class="post-user">${sessionStorage.getItem('name')}</span>
@@ -42,11 +40,10 @@ function setNewPost() {
     let formData = new FormData();
     formData.append("idPost", "");
     formData.append("idUser", sessionStorage.getItem('idUser'));
-    formData.append("contentPost", valuePost); 
+    formData.append("contentPost", valuePost);
     formData.append("amountLikes", "");
     // HTML file input user's choice...
     formData.append("image", valueFile.files[0]);
-    console.log(Array.from(formData));
     let request = new XMLHttpRequest();
     request.open("POST", "../backend/api/posts.php");
     request.send(formData);
@@ -55,7 +52,7 @@ function setNewPost() {
 
 function getUser(idUser) {
     axios({
-        url: '../backend/api/users.php?idUser='+idUser,
+        url: '../backend/api/users.php?idUser=' + idUser,
         method: 'get',
         responseType: 'json'
     }).then(res => {
@@ -66,12 +63,11 @@ function getUser(idUser) {
         sessionStorage.setItem('follow', res.data.follow);
 
         document.getElementById('user').innerHTML += `
-                <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="${route+res.data.image}">
+                <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="${route + res.data.image}">
                 <span >${res.data.name}</span>`
 
-        showPosts(idUser); 
+        showPosts(idUser);
         showUserStories(idUser);
-        //console.log(res);
     }).catch(error => {
         console.error(error);
     });
@@ -88,16 +84,15 @@ function getUsers() {
 
         }
         document.getElementById('users-actual').value = null;
-        //console.log(res);
     }).catch(error => {
         console.error(error);
     });
 }
 
 function showUserStories(idUser) {
-                
+
     axios({
-        url: '../backend/api/stories.php?idUser='+idUser,
+        url: '../backend/api/stories.php?idUser=' + idUser,
         method: 'get',
         responseType: 'json'
     }).then(res => {
@@ -105,7 +100,7 @@ function showUserStories(idUser) {
             document.getElementById('showUserStories').innerHTML += `
                 <div class="px-1 py-2 story-card pointer" onclick="showStories(${idUser},${res.data[i].idStory});">
                     <div class="fl">
-                      <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="${route+res.data[i].imageUser}">
+                      <img class="img-fluid img-thumbnail rounded-circle img-thumbnail-stories" src="${route + res.data[i].imageUser}">
                     </div>  
                     <div class="py-1 px-1 fl">
                       <small><b>${res.data[i].user}(${res.data[i].story.length})</b></small><br>
@@ -114,11 +109,10 @@ function showUserStories(idUser) {
             `;
 
         }
-        //console.log(res);
     })
-    .catch(error => {
-        console.error(error);
-    });
+        .catch(error => {
+            console.error(error);
+        });
 }
 
 function showPosts(value) {
@@ -144,16 +138,15 @@ function showPosts(value) {
 
             }
 
-
             document.getElementById('posts').innerHTML +=
                 `<div class="col-lg-12">
                 <div class="card mb-4 shadow-sm">
                 <div class="card-header">
-                    <img class="img-fluid img-thumbnail rounded-circle" src="${route+post.imageAccount}">    
+                    <img class="img-fluid img-thumbnail rounded-circle" src="${route + post.imageAccount}">    
                     <span>${post.name}</span>
                 </div>
                 <div class="card-body px-0 py-0">
-                    <div class="image-post" style="background-image: url(${route+post.image});">
+                    <div class="image-post" style="background-image: url(${route + post.image});">
 
                     </div>
                     <div class="px-3 py-3 post">
@@ -179,35 +172,33 @@ function showPosts(value) {
                 </div>
             </div>`;
         }
-        //console.log(res);
     }).catch(error => {
         console.error(error);
     });
 }
 
-function showStories(idUser, idStory){
+function showStories(idUser, idStory) {
     axios({
-        url: '../backend/api/stories.php?idUser='+idUser,
+        url: '../backend/api/stories.php?idUser=' + idUser,
         method: 'get',
         responseType: 'json'
     }).then(res => {
-        document.getElementById('bodyStory').innerHTML=''
+        document.getElementById('bodyStory').innerHTML = ''
         for (let i = 0; i < res.data.length; i++) {
-            if (idStory== res.data[i].idStory){
+            if (idStory == res.data[i].idStory) {
                 for (let x = 0; x < res.data[i].story.length; x++) {
                     document.getElementById('bodyStory').innerHTML += `
                         <div class="story">
-                            <div class="story-image-post" style="background-image: url(${route+res.data[i].story[x].image})">
+                            <div class="story-image-post" style="background-image: url(${route + res.data[i].story[x].image})">
                                 <div class="story-title">${res.data[i].story[x].title}</div>
                             </div>
                         </div>
                     `;
                 }
-                document.getElementById('titleNameUserStory').innerHTML= 'Viendo Historias de '+res.data[i].user;
+                document.getElementById('titleNameUserStory').innerHTML = 'Viendo Historias de ' + res.data[i].user;
             }
         }
         $('#show-story').modal('show');
-        //console.log(res);
     }).catch(error => {
         console.error(error);
     });
@@ -215,51 +206,49 @@ function showStories(idUser, idStory){
 
 function like(idPostvalue) {
     let posts = JSON.parse(sessionStorage.getItem('post'));
-    let idPost,idUser,contentPost,image,amountLikes;
+    let idPost, idUser, contentPost, image, amountLikes;
     for (let i = 0; i < posts.data.length; i++) {
-        if (posts.data[i].idPost==idPostvalue){
-             idPost= posts.data[i].idPost;
-             idUser= posts.data[i].idUser ;
-             contentPost= posts.data[i].contentPost ;
-             image= posts.data[i].image;
-             amountLikes= posts.data[i].amountLikes;
+        if (posts.data[i].idPost == idPostvalue) {
+            idPost = posts.data[i].idPost;
+            idUser = posts.data[i].idUser;
+            contentPost = posts.data[i].contentPost;
+            image = posts.data[i].image;
+            amountLikes = posts.data[i].amountLikes;
         }
     }
-    if (amountLikes.length>0){
+    if (amountLikes.length > 0) {
         for (let i = 0; i < amountLikes.length; i++) {
             let pos = amountLikes.indexOf(sessionStorage.getItem('idUser'));
-            if (pos){
-                amountLikes.splice(pos,1);
-            }else{
+            if (pos) {
+                amountLikes.splice(pos, 1);
+            } else {
                 amountLikes.push(parseInt(sessionStorage.getItem('idUser')));
             }
         }
-    }else{
+    } else {
         amountLikes.push(parseInt(sessionStorage.getItem('idUser')));
     }
 
     axios({
-        url: '../backend/api/posts.php?idPost='+ idPostvalue,
+        url: '../backend/api/posts.php?idPost=' + idPostvalue,
         method: 'put',
         responseType: 'json',
         data: {
             idPost: idPost,
             idUser: idUser,
-            contentPost: contentPost ,
+            contentPost: contentPost,
             image: image,
             amountLikes: amountLikes
         }
     })
-    .then(res => {
-       console.log(res);
-       showPosts(sessionStorage.getItem('idUser'));
-        
-    })
+        .then(res => {
+            showPosts(sessionStorage.getItem('idUser'));
 
-    .catch(error => {
-        console.error(error);
-    });
+        })
+
+        .catch(error => {
+            console.error(error);
+        });
 }
 
 
-   

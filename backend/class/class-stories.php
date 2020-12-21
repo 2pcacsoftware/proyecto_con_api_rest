@@ -15,7 +15,7 @@ class Stories {
         $this->story=$story;
     }
     
-    // fucion para leer la historia del usuario
+    // funzione per leggere la cronologia dell'utente
     public static function getUserStories($idUser){
         $contentFileUser =file_get_contents('../data/users.json');
         $users = json_decode($contentFileUser, true);
@@ -25,7 +25,7 @@ class Stories {
                 $user= $users[$i];
             }
         }
-        //historias
+        //story
         $contentFileStories =file_get_contents('../data/stories.json');
         $stories= json_decode($contentFileStories,true);
         $userStories= array ();

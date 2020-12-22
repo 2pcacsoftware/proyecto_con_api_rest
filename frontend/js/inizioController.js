@@ -48,7 +48,6 @@ function setNewPost() {
     request.open("POST", "../backend/api/posts.php");
     request.send(formData);
     $('#nuovo-post').modal('hide');
-    showPosts(sessionStorage.getItem('idUser'));
 }
 
 function getUser(idUser) {
@@ -244,6 +243,7 @@ function like(idPostvalue) {
     })
         .then(res => {
             showPosts(sessionStorage.getItem('idUser'));
+
         })
 
         .catch(error => {

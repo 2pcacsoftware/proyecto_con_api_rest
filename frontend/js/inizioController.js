@@ -244,7 +244,6 @@ function like(idPostvalue) {
     })
         .then(res => {
             showPosts(sessionStorage.getItem('idUser'));
-
         })
 
         .catch(error => {

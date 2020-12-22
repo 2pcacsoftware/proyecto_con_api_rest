@@ -48,7 +48,6 @@ function setNewPost() {
     request.open("POST", "../backend/api/posts.php");
     request.send(formData);
     $('#nuovo-post').modal('hide');
-    showPosts(sessionStorage.getItem('idUser'));
 }
 
 function getUser(idUser) {
@@ -151,7 +150,6 @@ function showPosts(value) {
 
                     </div>
                     <div class="px-3 py-3 post">
-                    <span class="pointer" onclick="like(${post.idPost});"><i class="far fa-heart"></i></span>&nbsp;${post.amountLikes.length}Likes<br>
                     <span class="post-user">${post.name}</span>
                     <span class="post-content">${post.contentPost}</span>
                     <hr>
@@ -204,52 +202,3 @@ function showStories(idUser, idStory) {
         console.error(error);
     });
 }
-
-function like(idPostvalue) {
-    let posts = JSON.parse(sessionStorage.getItem('post'));
-    let idPost, idUser, contentPost, image, amountLikes;
-    for (let i = 0; i < posts.data.length; i++) {
-        if (posts.data[i].idPost == idPostvalue) {
-            idPost = posts.data[i].idPost;
-            idUser = posts.data[i].idUser;
-            contentPost = posts.data[i].contentPost;
-            image = posts.data[i].image;
-            amountLikes = posts.data[i].amountLikes;
-        }
-    }
-    if (amountLikes.length > 0) {
-        for (let i = 0; i < amountLikes.length; i++) {
-            let pos = amountLikes.indexOf(sessionStorage.getItem('idUser'));
-            if (pos) {
-                amountLikes.splice(pos, 1);
-            } else {
-                amountLikes.push(parseInt(sessionStorage.getItem('idUser')));
-            }
-        }
-    } else {
-        amountLikes.push(parseInt(sessionStorage.getItem('idUser')));
-    }
-
-    axios({
-        url: '../backend/api/posts.php?idPost=' + idPostvalue,
-        method: 'put',
-        responseType: 'json',
-        data: {
-            idPost: idPost,
-            idUser: idUser,
-            contentPost: contentPost,
-            image: image,
-            amountLikes: amountLikes
-        }
-    })
-        .then(res => {
-            showPosts(sessionStorage.getItem('idUser'));
-
-        })
-
-        .catch(error => {
-            console.error(error);
-        });
-}
-
-

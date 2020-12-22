@@ -30,13 +30,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         }
         break;
     case 'PUT': //ACTUALIZAR
-        $_PUT = json_decode(file_get_contents('php://input'),true);
-        $post = new Post ($_PUT['idPost'],
-                            $_PUT['idUser'], 
-                            $_PUT['contentPost'], 
-                            $_PUT['image'], 
-                            $_PUT['amountLikes']);
-        $post->updatePost($_GET['idPost']);
+        # code...
         break;
     case 'DELETE': //ELIMINAR
         # code...
